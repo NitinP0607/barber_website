@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">    
+</head>
+<body>
+    <section id="banner">
+        <img src="images/logo.png" alt="" class="logo">
+        <div class="banner-text">
+            <h1>Hair studio</h1>
+            <p>Style your hair the way you want</p>
+            <div class="banner-btn">
+                <a href="#"><span></span>Find out</a>
+                <a href="#"><span></span>Read more</a>
+            </div>
+        </div>
+    </section>
+    <div id="sidenav">
+        <nav>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">FEATURES</a></li>
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">TESTIMONIALS</a></li>
+                <li><a href="#">MEET US</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="menuBtn">
+        <img src="images/menu.png" id="menu" alt="">
+    </div>
+
+    <!-- Features section -->
+     <section id="feature">
+        <div class="title-text">
+            <p>FEATURES</p>
+            <h1>Why choose us ?</h1>
+        </div>
+        <div class="feature-box">
+            <div class="features">
+                <h1>Experience Staff</h1>
+                <div class="features-description">
+                    <div class="features-icon">
+                        <i class="fa fa-shield"></i>
+
+                    </div>
+                    <div class="features-text">
+                        <p>Our staff has years of experience in the hairdressing industry and are constantly updating their skills to provide you with the best service.</p>
+                    </div>
+                </div>
+                <h1>Pre Booking online</h1>
+                <div class="features-description">
+                    <div class="features-icon">
+                       <i class="fa-regular fa-square-check"></i>
+
+
+                    </div>
+                    <div class="features-text">
+                        <p>Our staff has years of experience in the hairdressing industry and are constantly updating their skills to provide you with the best service.</p>
+                    </div>
+                </div>
+                <h1>Affordable cost</h1>
+                <div class="features-description">
+                    <div class="features-icon">
+                        <i class="fa fa-inr"></i>
+
+
+                    </div>
+                    <div class="features-text">
+                        <p>Our staff has years of experience in the hairdressing industry and are constantly updating their skills to provide you with the best service.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="features-img">
+                <img src="images//barber-man.jpg" alt="">
+            </div>-
+        </div>
+
+     </section>
+    <script>
+        let menuBtn = document.getElementById("menuBtn");
+        let sidenav = document.getElementById("sidenav");
+        let menu = document.getElementById("menu");
+
+        menuBtn.onclick = function(){
+            if(sidenav.style.right == "-250px"){
+                sidenav.style.right = "0";
+                menu.src = "images/close.png";
+            }
+            else{
+                sidenav.style.right = "-250px";
+                menu.src = "images/menu.png";
+            }
+        }
+    </script>
+</body>
+</html>
