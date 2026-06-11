@@ -3,7 +3,8 @@
 *{
     margin: 0;
     padding: 0;
-     font-family: "Outfit", sans-serif;
+    font-family: "Outfit", sans-serif;
+    scroll-behavior: smooth;
 }
 
 #banner{
@@ -72,7 +73,7 @@
     position: fixed;
     right: -250px;
     top: 0;
-    background: #009688;
+    background: #474b4a;
     z-index: 2;
     transition: 0.5s;
 }
@@ -209,5 +210,227 @@ nav ul li a{
     .features-img img{
         width: 100%;
         border-radius: 0px;
+    }
+}
+
+/* Service */
+
+#service{
+    width: 100%;
+    padding: 70px 0;
+    background: #cccccc;
+}
+.service-box{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.single-service{
+    flex-basis: 48%;
+    text-align: center;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    color: #fff;
+    position: relative;
+
+}
+
+.single-service img{
+    width: 100%;
+    border-radius: 7px;
+    transition: 0.5s;
+}
+.overlay{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), #009688);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.single-service:hover .overlay  {
+    opacity: 1;
+}
+.service-desk{
+    width: 80%;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: 1s;
+}
+.service-desk hr{
+    background: #fff;
+    height: 2px;
+    border: 0;
+    margin: 15px auto;
+    width: 60%;
+}
+.service-desk p{
+    font-size: 14px;
+}
+
+.single-service:hover .service-desk{
+    bottom: 40%;
+   opacity: 1;
+}
+
+@media  screen and (max-width: 770px) {
+    .single-service{
+        flex-basis: 100%;
+        margin-bottom: 30px;
+    }
+    .service-desk p{
+    font-size: 12px;
+}
+.service-desk hr{
+    margin: 5px auto;
+}
+.single-service:hover .service-desk{
+   bottom: 25% !important;
+   opacity: 1;
+}
+}
+
+/* Testimonial */
+#testimonial{
+    width: 100%;
+    padding: 70px 0;
+}
+
+.testimonial-row{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.testimonial-column{
+    flex-basis: 28%;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px 3px #009688;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+.testimonial-column p{
+    font-size: 14px;
+    color: #009688;
+    font-style: italic;
+}
+.user{
+    display: flex;
+    align-items: center;
+    margin-top: 20px 0;   
+}
+.user img{
+    width: 80px;
+    margin-right: 10px;
+}
+.user-info .fa-twitter{
+    margin-left: 10px;
+    color: #27c0ff;
+    font-size: 20px; 
+}
+.user-info small{
+    color: #009688;
+}
+
+.testimonial-column:hover{
+    transform: translateY(-20px);
+}
+
+@media  screen and (max-width: 770px){
+    .testimonial-column{
+        flex-basis: 100%;
+    }
+}
+
+#footer{
+    width: 100%;
+    padding-top: 30px;
+    background: #efefef;
+    position: relative;
+    
+}
+.footer-row{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.footer-left, .footer-right{
+    flex-basis: 45%;
+    padding: 10px;
+    margin-bottom: 20px;
+
+}
+.footer-right{
+    text-align: right;
+}
+.footer-row h1{
+    margin: 10px 0;
+}
+.footer-row p{
+    line-height: 25px;
+
+}
+.footer-left .fa-regular, .footer-right .fa-regular, .footer-left .fa-solid, .footer-right .fa-solid {
+    font-size: 20px;
+    color: #009688;
+    margin: 10px;
+}
+.footer-img{
+    max-width: 370px;
+    opacity: 0.1;
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+}
+.social-links{
+    text-align: center;
+    background: #474b4a;
+}
+.social-links .fa-brands{
+    height: 40px;
+    width: 60px;
+    line-height: 40px;
+    font-size: 20px;
+    color: #009688;
+    margin: 40px 5px 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.social-links .fa-brands:hover{
+    color: #413434;
+    transform: translateY(-7px);
+}
+.social-links p{
+    font-size: 15px;
+    margin-top: 20px;
+    padding: 10px;
+    color: #fff;
+}
+
+@media  screen and (max-width: 770px){
+    .footer-left, .footer-right{
+        flex-basis: 100%;
+        font-size: 14px;
+    }
+    .footer-img{
+        top: 25%;
     }
 }
