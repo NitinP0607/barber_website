@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Services</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+
+<body>
+    <section id="about-services" class="about-services">
+        <div class="right-about-services">
+            <h1>Amazing Grooming Services</h1>
+            <p>We take pride in offering a wide range of grooming services designed to help you look sharp and feel
+                confident. Our team of experienced barbers and stylists are passionate about delivering exceptional
+                results tailored to your unique style and preferences. Whether you’re seeking a fresh haircut, a clean
+                shave, or a perfectly shaped beard trim, we combine skill, precision, and high‑quality products to
+                ensure you leave feeling renewed. With a commitment to professionalism and customer satisfaction, we
+                create a welcoming atmosphere where your comfort comes first. Book your appointment today and discover
+                the difference of expert care. 
+                <br> <br> <br>
+                Booking your grooming appointment online offers unmatched convenience and flexibility. With just a few
+                clicks, you can schedule a haircut, shave, or beard trim at a time that suits your busy lifestyle,
+                without the hassle of phone calls or waiting in line. Our easy‑to‑use booking system ensures you secure
+                your preferred slot instantly, giving you peace of mind and saving valuable time. Beyond convenience, we
+                believe looking your best should never come at a high cost. That’s why our services are priced
+                affordably, making professional grooming accessible to everyone. Whether you’re a student, a working
+                professional, or simply someone who values style, our transparent pricing guarantees excellent value
+                without hidden charges. By combining online booking with budget‑friendly rates, we deliver a modern,
+                customer‑focused experience that puts your comfort first. Book today and enjoy quality grooming that
+                fits both your schedule and your wallet.
+            </p>
+        </div>
+        <div class="left-about-services">
+            <img src="images/barber_cutting-hair.jpg" alt="">
+        </div>
+    </section>
+    <section id="top-services">
+        <div class="title-text">
+            <p> Look at our services and take advantage of our convenient booking system</p>
+            <h1>Book your appointment now just click on any services given</h1>
+        </div>
+        <div class="services-box">
+            <div class="services" onclick="openForm('Haircut')">
+                <img src="images/Hair_cutting.jpg" alt="">
+                <h1>Haircut</h1>
+                <hr>
+                <p>Get a stylish haircut that suits your personality and enhances your look. Our skilled barbers will
+                    work with you to create a personalized haircut that complements your features and style preferences.
+                </p>
+            </div>
+            <div class="services" onclick="openForm('Shaving')">
+                <img src="images/Shaving.jpg" alt="">
+                <h1>Shaving</h1>
+                <hr>
+                <p>Experience a traditional shaving service that leaves your skin feeling smooth and refreshed. Our
+                    barbers use high-quality products and techniques to provide a comfortable and precise shave,
+                    ensuring you look your best.</p>
+            </div>
+            <div class="services" onclick="openForm('Hair Coloring')">
+                <img src="images/Hair_coloring.jpg" alt="">
+                <h1>Hair Coloring</h1>
+                <hr>
+                <p>Transform your look with our professional hair coloring services. Our stylists use high-quality
+                    products to achieve vibrant, long-lasting results that enhance your natural beauty.</p>
+            </div>
+            <div class="services " onclick="openForm('Beard-trim')">
+                <img src="images/trimming-beard.jpg" alt="">
+                <hr>
+                <h1>Beard Trim</h1>
+                <p>Maintain a well-groomed beard with our professional beard trimming services. Our barbers will shape
+                    and style your beard to enhance your facial features, giving you a polished and refined appearance.
+                </p>
+            </div>
+        </div>
+    </section>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+
+            <span class="close" onclick="closeForm()">&times;</span>
+
+            <h2>Book Appointment</h2>
+
+            <form id="bookingForm">
+
+                <input type="text" placeholder="Your Name" id="name" required>
+
+                <input type="email" placeholder="Email Address" id="email" required>
+
+                <input type="text" placeholder="Phone Number" id="phone" required>
+
+                <input type="text" id="service" readonly>
+
+                <input type="date" id="date" required>
+
+                <input type="time" id="time" required>
+
+                <button type="submit">Book Appointment</button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="booking.js"></script>
+</body>
+
+</html>
