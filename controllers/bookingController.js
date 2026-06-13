@@ -1,0 +1,139 @@
+const Booking = require("../models/Booking");
+
+// Create Booking
+const createBooking = async (req, res) => {
+    try {
+
+        const { phone,email, date, time } = req.body;
+
+        const existingBooking = await Booking.findOne({
+            phone,
+            email,
+            date,
+            time
+        });
+
+        if (existingBooking) {
+            return res.status(400).json({
+                success: false,
+                message: "Booking already exists from the given number for the selected date and time. Please choose a different time slot."
+            });
+        }
+
+        const booking = await Booking.create(req.body);
+
+        res.status(201).json({
+            success: true,
+            message: "Booking created successfully",
+            booking
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+};
+
+
+// Get All Bookings
+const getAllBookings = async (req, res) => {
+    try {
+
+        const bookings = await Booking.find();
+
+        res.status(200).json({
+            success: true,
+            count: bookings.length,
+            bookings
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+};
+
+
+// Edit Booking
+const updateBooking = async (req, res) => {
+
+    try {
+
+        const booking = await Booking.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            {
+                new: true,
+                runValidators: true
+            }
+        );
+
+        if (!booking) {
+
+            return res.status(404).json({
+                success: false,
+                message: "Booking not found"
+            });
+
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Booking updated successfully",
+            booking
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+
+};
+
+
+// Delete Booking
+const deleteBooking = async (req, res) => {
+
+    try {
+
+        const booking = await Booking.findByIdAndDelete(req.params.id);
+
+        if (!booking) {
+
+            return res.status(404).json({
+                success: false,
+                message: "Booking not found"
+            });
+
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Booking deleted successfully"
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+
+};
+
+
+module.exports = { createBooking, getAllBookings, updateBooking, deleteBooking };
