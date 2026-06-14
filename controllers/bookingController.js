@@ -4,7 +4,7 @@ const Booking = require("../models/Booking");
 const createBooking = async (req, res) => {
     try {
 
-        const { phone,email, date, time } = req.body;
+        const { phone, email, date, time } = req.body;
 
         const existingBooking = await Booking.findOne({
             phone,
@@ -20,7 +20,10 @@ const createBooking = async (req, res) => {
             });
         }
 
-        const booking = await Booking.create(req.body);
+        const booking = await Booking.create({
+            ...req.body,
+            user: req.user.id
+        });
 
         res.status(201).json({
             success: true,
@@ -38,12 +41,15 @@ const createBooking = async (req, res) => {
     }
 };
 
+//Get all booking for a specific user
 
-// Get All Bookings
-const getAllBookings = async (req, res) => {
+const getMyBookings = async (req, res) => {
+
     try {
 
-        const bookings = await Booking.find();
+        const bookings = await Booking.find({
+            user: req.user.id
+        });
 
         res.status(200).json({
             success: true,
@@ -59,7 +65,30 @@ const getAllBookings = async (req, res) => {
         });
 
     }
+
 };
+
+// Get All Bookings (For Admin)
+// const getAllBookings = async (req, res) => {
+//     try {
+
+//         const bookings = await Booking.find();
+
+//         res.status(200).json({
+//             success: true,
+//             count: bookings.length,
+//             bookings
+//         });
+
+//     } catch (error) {
+
+//         res.status(500).json({
+//             success: false,
+//             message: error.message
+//         });
+
+//     }
+// };
 
 
 // Edit Booking
@@ -67,8 +96,11 @@ const updateBooking = async (req, res) => {
 
     try {
 
-        const booking = await Booking.findByIdAndUpdate(
-            req.params.id,
+        const booking = await Booking.findOneAndUpdate(
+            {
+                _id: req.params.id,
+                user: req.user.id
+            },
             req.body,
             {
                 new: true,
@@ -108,7 +140,10 @@ const deleteBooking = async (req, res) => {
 
     try {
 
-        const booking = await Booking.findByIdAndDelete(req.params.id);
+        const booking = await Booking.findOneAndDelete({
+            _id: req.params.id,
+            user: req.user.id
+        });
 
         if (!booking) {
 
@@ -136,4 +171,4 @@ const deleteBooking = async (req, res) => {
 };
 
 
-module.exports = { createBooking, getAllBookings, updateBooking, deleteBooking };
+module.exports = { createBooking, getMyBookings, updateBooking, deleteBooking };

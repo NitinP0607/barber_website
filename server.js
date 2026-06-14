@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./configue/db");
 const bookingRoutes = require("./routes/bookingRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 dotenv.config();
 connectDB(); 
@@ -17,6 +18,7 @@ app.use(express.json());
 
 //Routes
 app.use("/api/bookings", bookingRoutes);
+app.use("/api/users", userRoutes);
 
 
 // Serve frontend
