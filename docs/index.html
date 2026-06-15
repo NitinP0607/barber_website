@@ -14,7 +14,7 @@
             <h1>Hair studio</h1>
             <p>Style your hair the way you want</p>
             <div class="banner-btn">
-                <a href="register.html"><span></span>Register now</a>
+                <a href="register.html" id="registerBtn"><span></span>Register now</a>
                 <a href="booking.html"><span></span>Our services</a>
             </div>
         </div>
@@ -193,21 +193,6 @@
             <p>Copyright@n-technologies.in #2026</p>
         </div>
          </section>
-    <script>
-        let menuBtn = document.getElementById("menuBtn");
-        let sidenav = document.getElementById("sidenav");
-        let menu = document.getElementById("menu");
-
-        menuBtn.onclick = function(){
-            if(sidenav.style.right == "-250px"){
-                sidenav.style.right = "0";
-                menu.src = "images/close.png";
-            }
-            else{
-                sidenav.style.right = "-250px";
-                menu.src = "images/menu.png";
-            }
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
