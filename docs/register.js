@@ -38,7 +38,7 @@ signupForm.addEventListener("submit", async (e) => {
         });
         const data = await response.json();
         if (data.success) {
-            alert("Registration successful!");
+            alert(data.message  );
             signupForm.reset();
             container.classList.remove("right-panel-active");
         } else {
@@ -68,7 +68,7 @@ loginForm.addEventListener("submit", async (e) => {
         if (data.success) {
             localStorage.setItem("token", data.token);
             localStorage.setItem("user", JSON.stringify(data.user));
-            alert("Login successful!");
+            alert(data.message);
             window.location.href = "index.html";
         } else {
             alert(data.message);
