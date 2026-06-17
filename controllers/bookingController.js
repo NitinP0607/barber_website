@@ -1,15 +1,14 @@
- const Booking = require("../models/Booking");
+const Booking = require("../models/Booking");
 
 // Create Booking
 const createBooking = async (req, res) => {
     try {
 
-        const { name,phone, email, date, time } = req.body;
+        const { name, phone, service, date, time } = req.body;
 
         const existingBooking = await Booking.findOne({
-            name,
-            phone,
-            email,
+            user: req.user.id,
+            service,
             date,
             time
         });
@@ -22,8 +21,11 @@ const createBooking = async (req, res) => {
         }
 
         const booking = await Booking.create({
-            ...req.body,
-            user: req.user.id
+            user: req.user.id, 
+            name, phone, 
+            service, 
+            date, 
+            time 
         });
 
         res.status(201).json({

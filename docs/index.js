@@ -1,4 +1,4 @@
-let menuBtn = document.getElementById("menuBtn");
+let menuBtn = document.getElementById("menu");
 let sidenav = document.getElementById("sidenav");
 let menu = document.getElementById("menu");
 
@@ -17,6 +17,7 @@ menuBtn.onclick = function () {
 
 const registerBtn = document.getElementById("registerBtn");
 const logoutBtn = document.getElementById("logoutBtn");
+const logoutText = document.getElementById("logout-text")
 
 const token = localStorage.getItem("token");
 
@@ -26,6 +27,8 @@ if (token) {
     registerBtn.href = "mybookings.html";
 
     logoutBtn.style.display = "inline-block";
+    logoutBtn.style.height="30px";
+    logoutBtn.style.cursor="pointer"
 
 } else {
 
@@ -46,7 +49,5 @@ logoutBtn.addEventListener("click", (e) => {
     window.location.href = "index.html";
 
 });
-
-
 
 

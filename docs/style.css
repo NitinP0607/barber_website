@@ -86,19 +86,24 @@ nav ul li a{
     color: #fff;
 }
 #menuBtn{
-    width: 50px;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
     height: 50px;
-    text-align: center;
     line-height: 50px;
     position: fixed;
-    right: 30px;
-    top: 20px;
-    cursor: pointer;
+    right: 0px;
+    top: 10px;
     z-index: 3;
 }
-#menuBtn img{
-    width: 25px;
-    margin-top: 15px;
+.logout{
+    display: none;
+}
+
+#menu{
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
     background: transparent;
 }
 

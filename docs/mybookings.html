@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+    <link rel="stylesheet" href="myBookings.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>My Appointments</h1>
+
+        <div class="loader" id="loader">
+            <div class="spinner"></div>
+            <p>Loading bookings...</p>
+        </div>
+
+        <div id="bookingList"></div>
+
+    </div>
+
+
+    <!-- Update Popup -->
+
+    <div class="popup" id="updatePopup">
+
+        <div class="popup-content">
+
+            <span class="close" onclick="closeUpdateForm()">
+                &times;
+            </span>
+
+            <h2>Update Booking</h2>
+
+            <form id="updateForm">
+
+                <input type="hidden" id="updateId">
+
+                <input
+                    type="text"
+                    id="updateName"
+                    placeholder="Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="updatePhone"
+                    placeholder="Phone"
+                    required
+                >
+
+                <select id="updateService">
+
+                    <option value="Haircut">
+                        Haircut
+                    </option>
+
+                    <option value="Shaving">
+                        Shaving
+                    </option>
+
+                    <option value="Hair Coloring">
+                        Hair Coloring
+                    </option>
+
+                    <option value="Beard Trim">
+                        Beard Trim
+                    </option>
+
+                </select>
+
+                <input
+                    type="date"
+                    id="updateDate"
+                    required
+                >
+
+                <input
+                    type="time"
+                    id="updateTime"
+                    required
+                >
+
+                <button type="submit">
+                    Save Changes
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="myBookings.js"></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,231 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    min-height:100vh;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:50px 0;
+}
+
+.container h1{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:3rem;
+    color:#fff;
+}
+
+/* Loader */
+
+.loader{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    min-height:250px;
+}
+
+.spinner{
+    width:70px;
+    height:70px;
+    border:7px solid rgba(255,255,255,.15);
+    border-top:7px solid #7c3aed;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+.loader p{
+    color:#cbd5e1;
+    font-size:18px;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* Cards */
+
+#bookingList{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h2{
+    color:#8b5cf6;
+    margin-bottom:20px;
+}
+
+.card p{
+    color:#d1d5db;
+    margin:10px 0;
+    line-height:1.7;
+}
+
+/* Buttons */
+
+.btn-group{
+    margin-top:25px;
+    display:flex;
+    gap:15px;
+}
+
+.update-btn,
+.delete-btn{
+    flex:1;
+    border:none;
+    padding:13px;
+    border-radius:12px;
+    cursor:pointer;
+    color:white;
+    font-size:15px;
+    transition:.3s;
+}
+
+.update-btn{
+    background:linear-gradient(135deg,#7c3aed,#2563eb);
+}
+
+.delete-btn{
+    background:linear-gradient(135deg,#dc2626,#ef4444);
+}
+
+.update-btn:hover,
+.delete-btn:hover{
+    transform:translateY(-4px);
+}
+
+/* Popup */
+
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.75);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.popup-content{
+    width:90%;
+    max-width:500px;
+    background:#1e293b;
+    padding:35px;
+    border-radius:25px;
+    position:relative;
+    animation:popup .4s ease;
+}
+
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.popup-content h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.popup-content input,
+.popup-content select{
+    width:100%;
+    padding:15px;
+    margin:12px 0;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:#334155;
+    color:white;
+}
+
+.popup-content button{
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#7c3aed,#2563eb);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.close{
+    position:absolute;
+    right:20px;
+    top:15px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .container h1{
+        font-size:2.2rem;
+    }
+
+    #bookingList{
+        grid-template-columns:1fr;
+    }
+
+    .btn-group{
+        flex-direction:column;
+    }
+
+    .popup-content{
+        padding:25px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .container h1{
+        font-size:1.8rem;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+}
+

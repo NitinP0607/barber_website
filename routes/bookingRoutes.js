@@ -6,7 +6,7 @@ const { createBooking, getMyBookings,updateBooking, deleteBooking } = require(".
 const isAuthenticatedUser = require("../middleware/auth");
 
 router.post("/", isAuthenticatedUser, createBooking);
-router.get("/my-bookings", isAuthenticatedUser, getMyBookings);
+router.get("/mybookings", isAuthenticatedUser, getMyBookings);
 router.put("/:id", isAuthenticatedUser, updateBooking);
 router.delete("/:id", isAuthenticatedUser, deleteBooking);
 
